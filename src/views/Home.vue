@@ -37,13 +37,13 @@
                   <!-- Project Details Go Here -->
                   <h2 class="text-uppercase">Episode {{peli.episode_id}}: {{peli.title}}</h2>
       
-                  <iframe v-if="peli.episode_id == 4" src="https://www.youtube.com/embed/vZ734NWnAHA" frameborder="0" width="600" height="400"></iframe>
-                  <iframe v-if="peli.episode_id == 5" src="https://www.youtube.com/embed/JNwNXF9Y6kY" frameborder="0" width="600" height="400"></iframe>
-                  <iframe v-if="peli.episode_id == 6" src="https://www.youtube.com/embed/7L8p7_SLzvU" frameborder="0" width="600" height="400"></iframe>
-                  <iframe v-if="peli.episode_id == 1" src="https://www.youtube.com/embed/bD7bpG-zDJQ" frameborder="0" width="600" height="400"></iframe>
-                  <iframe v-if="peli.episode_id == 2" src="https://www.youtube.com/embed/gYbW1F_c9eM" frameborder="0" width="600" height="400"></iframe>
-                  <iframe v-if="peli.episode_id == 3" src="https://www.youtube.com/embed/5UnjrG_N8hU" frameborder="0" width="600" height="400"></iframe>
-                  <iframe v-if="peli.episode_id == 7" src="https://www.youtube.com/embed/ngElkyQ6Rhs" frameborder="0" width="600" height="400"></iframe>
+                  <iframe v-if="peli.episode_id == 4" id="ep_4" src="https://www.youtube.com/embed/vZ734NWnAHA" frameborder="0" width="600" height="400"></iframe>
+                  <iframe v-if="peli.episode_id == 5" id="ep_5" src="https://www.youtube.com/embed/JNwNXF9Y6kY" frameborder="0" width="600" height="400"></iframe>
+                  <iframe v-if="peli.episode_id == 6" id="ep_6" src="https://www.youtube.com/embed/7L8p7_SLzvU" frameborder="0" width="600" height="400"></iframe>
+                  <iframe v-if="peli.episode_id == 1" id="ep_1" src="https://www.youtube.com/embed/bD7bpG-zDJQ" frameborder="0" width="600" height="400"></iframe>
+                  <iframe v-if="peli.episode_id == 2" id="ep_2" src="https://www.youtube.com/embed/gYbW1F_c9eM" frameborder="0" width="600" height="400"></iframe>
+                  <iframe v-if="peli.episode_id == 3" id="ep_3" src="https://www.youtube.com/embed/5UnjrG_N8hU" frameborder="0" width="600" height="400"></iframe>
+                  <iframe v-if="peli.episode_id == 7" id="ep_7" src="https://www.youtube.com/embed/ngElkyQ6Rhs" frameborder="0" width="600" height="400"></iframe>
                  
                   <p class="text-justify">{{peli.opening_crawl}}</p>
                   <ul>
