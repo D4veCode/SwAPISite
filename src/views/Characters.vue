@@ -123,7 +123,6 @@ export default {
     getCharacters(){
         axios.get('https://swapi.co/api/people')
         .then(res =>{
-          //console.log(res.data.results);
           this.personajes = res.data.results;
           this.next = res.data.next;
           this.previous = res.data.previous;
@@ -135,12 +134,10 @@ export default {
    getPage(path){
         axios.get(path)
         .then(res =>{
-            this.personajes = [];
-            //console.log(this.personajes);
-            this.personajes = res.data.results;
-            console.log(this.personajes);
-            this.next = res.data.next;
-            this.previous = res.data.previous;
+          this.personajes = [];
+          this.personajes = res.data.results;
+          this.next = res.data.next;
+          this.previous = res.data.previous;
         })
         .catch(err =>{
           alert("El error es el siguiente: " + err);

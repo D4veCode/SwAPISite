@@ -88,10 +88,8 @@ export default {
     getFilms(){
         axios.get('https://swapi.co/api/films/')
         .then(res =>{
-          console.log(res.data);
           this.peliculas = res.data.results;
           this.peliculas.sort((a,b)=>parseInt(a.release_date.slice(0,4))-parseInt(b.release_date.slice(0,4)));
-          console.log(this.peliculas);
         })
         .catch(err =>{
           alert("El error es el siguiente: " + err);
