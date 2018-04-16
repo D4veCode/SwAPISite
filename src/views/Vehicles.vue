@@ -1,55 +1,53 @@
 <template>
   <div class="Vehicles">
-      
-          <div class="row">
-              <div class="col-12 col-md-3 col-sm-12 d-flex flex-wrap flex-row justify-content-around" v-for="(veh, index) in vehiculos" :key="index">
-             <div class="card mb-2" style="width: 18rem;">
-            <div class="card-body">
-                <h3 class="card-title">{{veh.name}}</h3>
-                <h5 class="card-subtitle mb-2 text-muted"><b>Vehicle Class: </b>{{veh.vehicle_class}}</h5>
-            </div>
-            <h3 class="card-title">Vehicle Data: </h3>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Model: {{veh.model}}</li>
-                <li class="list-group-item">Length: {{veh.length}}</li>
-                <li class="list-group-item">Crew: {{veh.crew}}</li>
-                <li class="list-group-item">Passengers Capacity: {{veh.passengers}}</li>
-             </ul>
-        </div>
-        </div>
+    <div class="row">
+      <div class="col-12 col-md-3 col-sm-12 d-flex flex-wrap flex-row justify-content-around" v-for="(veh, index) in vehiculos" :key="index">
+        <div class="card mb-2" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title">{{veh.name}}</h3>
+            <h5 class="card-subtitle mb-2 text-muted"><b>Vehicle Class: </b>{{veh.vehicle_class}}</h5>
           </div>
-          <br>
-          <br>
-          <br>
-       <div class="row">
-           <div class="col-12 d-flex justify-content-center">
-                <div class="btn-group" role="group" aria-label="Basic example" v-if="previous == null">
-                    <button type="button" disabled class="btn btn-dark" @click="getPage(previous)">Previous</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=1')">1</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=2')">2</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=3')">3</button>
-                    <button type="button" class="btn btn-dark" @click="getPage(next)">Next</button>
-                </div>
-               <div class="btn-group" role="group" aria-label="Basic example" v-if="(next == 'https://swapi.co/api/vehicles/?page=2' || next == 'https://swapi.co/api/vehicles/?page=3' || next == 'https://swapi.co/api/vehicles/?page=4') && (previous != null)">
-                    <button type="button" class="btn btn-dark" @click="getPage(previous)">Previous</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=1')">1</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=2')">2</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=3')">3</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=4')">4</button>
-                    <button type="button" class="btn btn-dark" @click="getPage(next)">Next</button>
-                </div>
+          <h3 class="card-title">Vehicle Data: </h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Model: {{veh.model}}</li>
+            <li class="list-group-item">Length: {{veh.length}}</li>
+            <li class="list-group-item">Crew: {{veh.crew}}</li>
+            <li class="list-group-item">Passengers Capacity: {{veh.passengers}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <div class="btn-group" role="group" aria-label="Basic example" v-if="previous == null">
+          <button type="button" disabled class="btn btn-dark" @click="getPage(previous)">Previous</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=1')">1</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=2')">2</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=3')">3</button>
+          <button type="button" class="btn btn-dark" @click="getPage(next)">Next</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic example" v-if="(next == 'https://swapi.co/api/vehicles/?page=2' || next == 'https://swapi.co/api/vehicles/?page=3' || next == 'https://swapi.co/api/vehicles/?page=4') && (previous != null)">
+          <button type="button" class="btn btn-dark" @click="getPage(previous)">Previous</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=1')">1</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=2')">2</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=3')">3</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=4')">4</button>
+          <button type="button" class="btn btn-dark" @click="getPage(next)">Next</button>
+        </div>
                
-                <div class="btn-group" role="group" aria-label="Basic example" v-if="next == null">
-                    <button type="button" class="btn btn-dark" @click="getPage(previous)">Previous</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=1')">1</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=2')">2</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=3')">3</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=4')">4</button>
-                    <button type="button" disabled class="btn btn-dark" @click="getPage(next)">Next</button>
-                </div>
-           </div>
-       </div>
-       
+        <div class="btn-group" role="group" aria-label="Basic example" v-if="next == null">
+          <button type="button" class="btn btn-dark" @click="getPage(previous)">Previous</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=1')">1</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=2')">2</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=3')">3</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/vehicles/?page=4')">4</button>
+          <button type="button" disabled class="btn btn-dark" @click="getPage(next)">Next</button>
+        </div>
+     </div>
+    </div>
   </div>
 </template>
 <script>
@@ -71,12 +69,9 @@ export default {
     getVehicles(){
         axios.get('https://swapi.co/api/vehicles')
         .then(res =>{
-            console.log(res.data);
             this.vehiculos = res.data.results;
             this.next = res.data.next;
-            console.log(this.next)
             this.previous = res.data.previous;
-            console.log(this.previous);
         })
         .catch(err =>{
           alert("El error es el siguiente: " + err);
@@ -85,14 +80,9 @@ export default {
     getPage(path){
         axios.get(path)
         .then(res =>{
-            console.log(res.data.results);
             this.vehiculos = res.data.results;
             this.next = res.data.next;
-            console.log(this.next);
             this.previous = res.data.previous;
-            console.log(this.previous);
-            
-            
         })
         .catch(err =>{
           alert("El error es el siguiente: " + err);

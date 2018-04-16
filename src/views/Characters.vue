@@ -17,6 +17,7 @@
             <div class="portfolio-caption">
               <h4>{{char.name}}</h4>
               <p class="text-muted">Birth year: {{char.birth_year}}</p>
+              <planets :url="char.homeworld"/>
             </div>
             
           </div>
@@ -82,7 +83,7 @@
                     <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/people/?page=7')">7</button>
                     <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/people/?page=8')">8</button>
                     <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/people/?page=9')">9</button>
-                    <button type="button" disabled class="btn btn-dark" @click="getPage(next)">Next</button>
+                    <button type="button" class="btn btn-dark" @click="getPage(next)">Next</button>
                 </div>
                 <div class="btn-group" role="group" aria-label="Basic example" v-if="next == null">
                     <button type="button" class="btn btn-dark"  @click="getPage(previous)">Previous</button>

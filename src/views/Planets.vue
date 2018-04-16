@@ -76,12 +76,9 @@ export default {
     getPlanets(){
         axios.get('https://swapi.co/api/planets')
         .then(res =>{
-            console.log(res.data);
             this.planetas = res.data.results;
             this.next = res.data.next;
-            console.log(this.next)
             this.previous = res.data.previous;
-            console.log(this.previous);
         })
         .catch(err =>{
           alert("El error es el siguiente: " + err);
@@ -90,14 +87,9 @@ export default {
     getPage(path){
         axios.get(path)
         .then(res =>{
-            console.log(res.data.results);
             this.planetas = res.data.results;
             this.next = res.data.next;
-            console.log(this.next);
             this.previous = res.data.previous;
-            console.log(this.previous);
-            
-            
         })
         .catch(err =>{
           alert("El error es el siguiente: " + err);

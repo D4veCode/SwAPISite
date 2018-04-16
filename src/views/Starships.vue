@@ -1,55 +1,52 @@
 <template>
   <div class="Planets">
-      
-          <div class="row">
-              <div class="col-12 col-md-3 col-sm-12 d-flex flex-wrap flex-row justify-content-around" v-for="(stars, index) in navesEstelares" :key="index">
-             <div class="card mb-2" style="width: 18rem;">
-            <div class="card-body">
-                <h3 class="card-title">{{stars.name}}</h3>
-                <h5 class="card-subtitle mb-2 text-muted"><b>Model: </b>{{stars.model}}</h5>
-            </div>
-            <h3 class="card-title">Starships Data: </h3>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Manufacturer: {{stars.manufacturer}}</li>
-                <li class="list-group-item">Crew: {{stars.crew}}</li>
-                <li class="list-group-item">Passengers: {{stars.passengers}}</li>
-             </ul>
-        </div>
-        </div>
+    <div class="row">
+      <div class="col-12 col-md-3 col-sm-12 d-flex flex-wrap flex-row justify-content-around" v-for="(stars, index) in navesEstelares" :key="index">
+        <div class="card mb-2" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title">{{stars.name}}</h3>
+            <h5 class="card-subtitle mb-2 text-muted"><b>Model: </b>{{stars.model}}</h5>
           </div>
-          <br>
-          <br>
-          <br>
-       <div class="row">
-           <div class="col-12 d-flex justify-content-center">
-                <div class="btn-group" role="group" aria-label="Basic example" v-if="previous == null">
-                    <button type="button" disabled class="btn btn-dark" @click="getPage(previous)">Previous</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=1')">1</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=2')">2</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=3')">3</button>
-                    <button type="button" class="btn btn-dark" @click="getPage(next)">Next</button>
-                </div>
-              <div class="btn-group" role="group" aria-label="Basic example" v-if="(next == 'https://swapi.co/api/starships/?page=2' || next == 'https://swapi.co/api/starships/?page=3' || next == 'https://swapi.co/api/starships/?page=4') && (previous != null)">
-                    <button type="button" class="btn btn-dark" @click="getPage(previous)">Previous</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=1')">1</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=2')">2</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=3')">3</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=4')">4</button>
-                    <button type="button" class="btn btn-dark" @click="getPage(next)">Next</button>
-                </div>
-               
-                <div class="btn-group" role="group" aria-label="Basic example" v-if="next == null">
-                    <button type="button" class="btn btn-dark" @click="getPage(previous)">Previous</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=1')">1</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=2')">2</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=3')">3</button>
-                    <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=4')">4</button>
-                    <button type="button" disabled class="btn btn-dark" @click="getPage(next)">Next</button>
-                </div>
-            </div>
+          <h3 class="card-title">Starships Data: </h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Manufacturer: {{stars.manufacturer}}</li>
+            <li class="list-group-item">Crew: {{stars.crew}}</li>
+            <li class="list-group-item">Passengers: {{stars.passengers}}</li>
+          </ul>
         </div>
+      </div>
     </div>
-       
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <div class="btn-group" role="group" aria-label="Basic example" v-if="previous == null">
+          <button type="button" disabled class="btn btn-dark" @click="getPage(previous)">Previous</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=1')">1</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=2')">2</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=3')">3</button>
+          <button type="button" class="btn btn-dark" @click="getPage(next)">Next</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic example" v-if="(next == 'https://swapi.co/api/starships/?page=2' || next == 'https://swapi.co/api/starships/?page=3' || next == 'https://swapi.co/api/starships/?page=4') && (previous != null)">
+          <button type="button" class="btn btn-dark" @click="getPage(previous)">Previous</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=1')">1</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=2')">2</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=3')">3</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=4')">4</button>
+          <button type="button" class="btn btn-dark" @click="getPage(next)">Next</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic example" v-if="next == null">
+          <button type="button" class="btn btn-dark" @click="getPage(previous)">Previous</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=1')">1</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=2')">2</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=3')">3</button>
+          <button type="button" class="btn btn-dark" @click="getPage('https://swapi.co/api/starships/?page=4')">4</button>
+          <button type="button" disabled class="btn btn-dark" @click="getPage(next)">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>     
 </template>
 <script>
 import axios from 'axios'
@@ -71,12 +68,9 @@ export default {
     getStarships(){
         axios.get('https://swapi.co/api/starships')
         .then(res =>{
-            console.log(res.data);
             this.navesEstelares = res.data.results;
             this.next = res.data.next;
-            console.log(this.next)
             this.previous = res.data.previous;
-            console.log(this.previous);
         })
         .catch(err =>{
           alert("El error es el siguiente: " + err);
@@ -85,14 +79,9 @@ export default {
     getPage(path){
         axios.get(path)
         .then(res =>{
-            console.log(res.data.results);
             this.navesEstelares = res.data.results;
             this.next = res.data.next;
-            console.log(this.next);
             this.previous = res.data.previous;
-            console.log(this.previous);
-            
-            
         })
         .catch(err =>{
           alert("El error es el siguiente: " + err);
