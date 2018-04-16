@@ -35,5 +35,5 @@ export default new Router({
             component: Starships
         },
     ],
-    linkActiveClass: "active"
+    activeClass: 'active'
 })

@@ -1,5 +1,6 @@
 <template>
   <div class="char">
+        <p><b>Characters in the movie:</b></p>
         <ul>
           <li v-for="(char, index) in chars" :key="index" class="mb-0">{{char.name}} &nbsp; </li>
         </ul>
@@ -14,7 +15,6 @@ export default {
   props: ['url'],
   mounted(){
     this.getChars();
-
   },
   data(){
     return{
@@ -24,12 +24,10 @@ export default {
   methods:{
     getChars(){
       for(var i = 0; i < this.url.length; i++){
-        //  console.log(this.url[i]);
         axios.get(this.url[i])
         .then(res =>{
           //console.log(res.data);
           this.chars.push(res.data);
-         
         })
         .catch(err =>{
           alert("El error es el siguiente: " + err);
@@ -40,7 +38,10 @@ export default {
 }
 </script>
 <style scoped>
-ul>li{
+ul li{
   display: inline-block;
+}
+p{
+  margin-bottom: 1em;
 }
 </style>

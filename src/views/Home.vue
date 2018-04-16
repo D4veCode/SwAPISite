@@ -47,14 +47,15 @@
                   <iframe v-if="peli.episode_id == 7" src="https://www.youtube.com/embed/ngElkyQ6Rhs" frameborder="0" width="600" height="400"></iframe>
                  
                   <p class="text-justify">{{peli.opening_crawl}}</p>
-                  <ul class="list-inline">
-                    <li>Release Date: {{peli.release_date}}</li>
-                    <li>Producer: {{peli.producer}}</li>
-                    <li>Director: {{peli.director}}</li>
+                  <ul>
+                    <li> <b>Release Date:</b> {{peli.release_date}}</li>
+                    <br>
+                    <li><b>Producer:</b> {{peli.producer}}</li>
+                    <br>
+                    <li><b>Director:</b>  {{peli.director}}</li>
                   </ul>
-
+                  <char :url="peli.characters"/>
                   <button class="btn btn-outline-warning" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
                     Close</button>
                 </div>
               </div>

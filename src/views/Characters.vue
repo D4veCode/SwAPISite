@@ -11,7 +11,8 @@
                   <i class="fa fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid peli-foto" :src="'images/characters/'+ char.name.split(' ').join('_').toLowerCase()+'.jpg'" :alt="char.name">
+              <img v-if="char.name == 'Ki-Adi-Mundi'" class="img-fluid peli-foto" :src="'images/characters/'+ char.name.split('-').join('_').toLowerCase()+'.jpg'" :alt="char.name">
+              <img v-else class="img-fluid peli-foto" :src="'images/characters/'+ char.name.split(' ').join('_').toLowerCase()+'.jpg'" :alt="char.name">
             </a>
             <div class="portfolio-caption">
               <h4>{{char.name}}</h4>
@@ -44,8 +45,7 @@
                   <br>
                   <h2>Participation: </h2>
                   <films :url="char.films"/>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
+                  <button class="btn btn-outline-warning" data-dismiss="modal" type="button">
                     Close</button>
                 </div>
               </div>
@@ -134,10 +134,10 @@ export default {
    getPage(path){
         axios.get(path)
         .then(res =>{
-            this.personajes = [ ];
+            this.personajes = [];
             //console.log(this.personajes);
             this.personajes = res.data.results;
-            //console.log(this.personajes[9].films);
+            console.log(this.personajes);
             this.next = res.data.next;
             this.previous = res.data.previous;
         })

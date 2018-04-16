@@ -21,11 +21,12 @@ export default {
   methods:{
     getPlanets(){
         //console.log(this.url)
+        this.planet = {}
         axios.get(this.url)
         .then(res =>{
           //console.log(res.data);
           this.planet = res.data;
-          //console.log(this.planet);
+          console.log(this.planet);
         })
         .catch(err =>{
           alert("El error es el siguiente: " + err);

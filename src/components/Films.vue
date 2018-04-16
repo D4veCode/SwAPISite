@@ -24,7 +24,7 @@ export default {
     getFilms(path){
       this.films = [];
       for(var i = 0; i < path.length; i++){
-        console.log(path[i]);
+        //console.log(path[i]);
         axios.get(path[i])
         .then(res =>{
           //console.log(res.data);
