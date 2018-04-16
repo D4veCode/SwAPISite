@@ -12,28 +12,55 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto" id="menu">
-            <li class="nav-item px-lg-4">
+            <li class="nav-item px-lg-4 active" v-if="url == '/'">
              <router-link class="nav-link text-uppercase text-expanded " router-link-active to="/"> 
                 Home
                 <span class="sr-only">(current)</span>
              </router-link>
             </li>
-            <li class="nav-item px-lg-4">
+             <li class="nav-item px-lg-4" @click="getUrl" v-else>
+             <router-link class="nav-link text-uppercase text-expanded " router-link-active to="/"> 
+                Home
+                <span class="sr-only">(current)</span>
+             </router-link>
+            </li>
+            <li class="nav-item px-lg-4 active" v-if="url == '/personajes'">
               <router-link class="nav-link text-uppercase text-expanded" router-link-active to="/personajes"> 
                 Characters
              </router-link>
             </li>
-            <li class="nav-item px-lg-4">
+            <li class="nav-item px-lg-4" @click="getUrl" v-else>
+              <router-link class="nav-link text-uppercase text-expanded" router-link-active to="/personajes"> 
+                Characters
+             </router-link>
+            </li>
+            <li class="nav-item px-lg-4 active" v-if="url == '/planetas'">
               <router-link class="nav-link text-uppercase text-expanded" router-link-active to="/planetas"> 
                 Planets
              </router-link>
             </li>
-            <li class="nav-item px-lg-4">
+
+            <li class="nav-item px-lg-4" @click="getUrl" v-else>
+              <router-link class="nav-link text-uppercase text-expanded" router-link-active to="/planetas"> 
+                Planets
+             </router-link>
+            </li>
+            <li class="nav-item px-lg-4 active" v-if="url == '/naves'">
              <router-link class="nav-link text-uppercase text-expanded" router-link-active to="/naves"> 
                 Ships
              </router-link>
             </li>
-            <li class="nav-item px-lg-4">
+             <li class="nav-item px-lg-4" @click="getUrl" v-else>
+             <router-link class="nav-link text-uppercase text-expanded" router-link-active to="/naves"> 
+                Ships
+             </router-link>
+            </li>
+            <li class="nav-item px-lg-4 active" v-if="url == '/navesEstelares'">
+             <router-link class="nav-link text-uppercase text-expanded" router-link-active to="/navesEstelares"> 
+                Starships
+             </router-link>
+            </li>
+            <li class="nav-item px-lg-4" @click="getUrl" v-else>
              <router-link class="nav-link text-uppercase text-expanded" router-link-active to="/navesEstelares"> 
                 Starships
              </router-link>
@@ -58,6 +85,25 @@
   </div>
 
 </template>
+<script>
+export default {
+  name: 'app',
+  mounted(){
+    this. getUrl();
+  },
+  data(){
+    return{
+      url: ''
+    }
+  },
+  methods:{
+    getUrl(){
+      this.url = this.$route.path;
+    }
+  }
+}
+</script>
+
 <style>
 @font-face {
     font-family: "starjedi";
