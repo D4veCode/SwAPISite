@@ -89,7 +89,7 @@
 export default {
   name: 'app',
   mounted(){
-    this. getUrl();
+    this.getUrl();
   },
   data(){
     return{

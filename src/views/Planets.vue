@@ -1,9 +1,8 @@
 <template>
   <div class="Planets">
-      
-          <div class="row">
-              <div class="col-12 col-md-3 col-sm-12 d-flex flex-wrap flex-row justify-content-around" v-for="(plan, index) in planetas" :key="index">
-             <div class="card  mb-2" style="width: 18rem;">
+    <div class="row">
+      <div class="col-12 col-md-3 col-sm-12 d-flex flex-wrap flex-row justify-content-around" v-for="(plan, index) in planetas" :key="index">
+        <div class="card  mb-2" style="width: 18rem;">
             <div class="card-body">
                 <h3 class="card-title">{{plan.name}}</h3>
                 <h5 class="card-subtitle mb-2 text-muted    "><b>Population: </b>{{plan.population}}</h5>
@@ -14,7 +13,7 @@
                 <li class="list-group-item surface">Water Surface: {{plan.surface_water}}</li>
                 <li class="list-group-item terrain">Terrain: {{plan.terrain}}</li>
                 <li class="list-group-item diameter">Diameter: {{plan.diameter}}</li>
-             </ul>
+            </ul>
         </div>
         </div>
           </div>
@@ -53,55 +52,56 @@
                 </div>
            </div>
        </div>
-       
-  </div>
+    </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-  name: 'home',
-  mounted(){
+  name: "home",
+  mounted() {
     this.getPlanets();
   },
-  data(){
-    return{
-      planetas:[],
-      next: '',
-      previous: '',
+  data() {
+    return {
+      planetas: [],
+      next: "",
+      previous: "",
       cont: 0
-    }
+    };
   },
-  methods:{
-    getPlanets(){
-        axios.get('https://swapi.co/api/planets')
-        .then(res =>{
-            this.planetas = res.data.results;
-            this.next = res.data.next;
-            this.previous = res.data.previous;
+  methods: {
+    getPlanets() {
+      axios
+        .get("https://swapi.co/api/planets")
+        .then(res => {
+          this.planetas = res.data.results;
+          this.next = res.data.next;
+          this.previous = res.data.previous;
         })
-        .catch(err =>{
+        .catch(err => {
           alert("El error es el siguiente: " + err);
-        })
+        });
     },
-    getPage(path){
-        axios.get(path)
-        .then(res =>{
-            this.planetas = res.data.results;
-            this.next = res.data.next;
-            this.previous = res.data.previous;
+    getPage(path) {
+      axios
+        .get(path)
+        .then(res => {
+          this.planetas = res.data.results;
+          this.next = res.data.next;
+          this.previous = res.data.previous;
         })
-        .catch(err =>{
+        .catch(err => {
           alert("El error es el siguiente: " + err);
-        })
+        });
     }
   }
-}
+};
 </script>
 <style scoped>
 .card {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  background-color: #BDBDBD
+  background-color: #bdbdbd;
 }
 
 .card {
@@ -111,10 +111,10 @@ export default {
   background-clip: padding-box;
 }
 .card span.card-title {
-    color: #fff;
-    font-size: 24px;
-    font-weight: 300;
-    text-transform: uppercase;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .card .card-content {
@@ -144,32 +144,30 @@ export default {
   color: #ffd8a6;
   text-decoration: none;
 }
-.climate{
-    background-color: rgba(0, 119, 128, 0.692);
-    color: whitesmoke;
+.climate {
+  background-color: rgba(0, 119, 128, 0.692);
+  color: whitesmoke;
 }
-.terrain{
-   background-color: rgba(82, 53, 0, 0.692);
-    color: whitesmoke;
+.terrain {
+  background-color: rgba(82, 53, 0, 0.692);
+  color: whitesmoke;
 }
 
-.surface{
-    background-color: rgba(0, 23, 155, 0.692);
-   color: whitesmoke;
+.surface {
+  background-color: rgba(0, 23, 155, 0.692);
+  color: whitesmoke;
 }
-.diameter{
-    background-color: rgba(0, 0, 2, 0.692);
-    color: whitesmoke;
+.diameter {
+  background-color: rgba(0, 0, 2, 0.692);
+  color: whitesmoke;
 }
-.card-title{
-    font-family: Raleway;
-    
+.card-title {
+  font-family: Raleway;
 }
-.card-subtitle{
-    font-family: 'Gugi';
-    
+.card-subtitle {
+  font-family: "Gugi";
 }
-ul > li{
-    font-family: Gugi;
+ul > li {
+  font-family: Gugi;
 }
 </style>

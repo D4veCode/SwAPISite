@@ -14,13 +14,12 @@
             </a>
             <div class="portfolio-caption">
               <h4>{{peli.title}}</h4>
-              <p class="date">{{peli.release_date}}</p>
+              <p class="date"> <b>Release Date: </b>{{peli.release_date}}</p>
             </div>
             
           </div>
         </div>
       </div>
-      
     </section>
 
     <div class="portfolio-modal modal fade" v-for="(peli,index) in peliculas" :key="index" :id="'portfolioModal'+peli.episode_id" tabindex="-1" role="dialog" aria-hidden="true">
@@ -56,7 +55,8 @@
                   </ul>
                   <char :url="peli.characters"/>
                   <button class="btn btn-outline-warning" data-dismiss="modal" type="button">
-                    Close</button>
+                    Close
+                  </button>
                 </div>
               </div>
             </div>
